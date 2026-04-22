@@ -1,0 +1,9 @@
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:57:53 +0530] "GET /smart-campus-api/api/v1 HTTP/1.1" 200 349
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:08 +0530] "GET /smart-campus-api/api/v1/rooms HTTP/1.1" 200 259
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:08 +0530] "GET /smart-campus-api/api/v1/rooms/LIB-301 HTTP/1.1" 200 94
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:08 +0530] "GET /smart-campus-api/api/v1/sensors?type=Temperature HTTP/1.1" 200 198
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:08 +0530] "POST /smart-campus-api/api/v1/sensors/TEMP-001/readings HTTP/1.1" 201 84
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:08 +0530] "GET /smart-campus-api/api/v1/sensors/TEMP-001/readings HTTP/1.1" 200 131
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:25 +0530] "DELETE /smart-campus-api/api/v1/rooms/LIB-301 HTTP/1.1" 409 149
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:25 +0530] "POST /smart-campus-api/api/v1/sensors HTTP/1.1" 422 132
+0:0:0:0:0:0:0:1 - - [22/Apr/2026:23:58:25 +0530] "POST /smart-campus-api/api/v1/sensors/TEMP-002/readings HTTP/1.1" 403 170
