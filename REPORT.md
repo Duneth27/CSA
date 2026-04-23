@@ -1,8 +1,8 @@
 # Smart Campus API — Conceptual Report
 
 **Module**: 5COSC022W Client-Server Architectures  
-**Student**: [YOUR NAME]  
-**Student ID**: [YOUR ID]
+**Student**: K M D N Karunarathna  
+**Student ID**: w2120206 
 
 ---
 
