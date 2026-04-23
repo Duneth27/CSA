@@ -33,6 +33,16 @@ public class DiscoveryResource {
     }
 
     @GET
+    @Path("test-error")
+    public Response testError() {
+        // This endpoint deliberately triggers an unhandled exception
+        // to demonstrate the GenericExceptionMapper (catch-all for 500 errors)
+        String nullString = null;
+        nullString.length(); // Throws NullPointerException
+        return Response.ok().build(); // Never reached
+    }
+
+    @GET
     @Path("health")
     public Response healthCheck() {
         Map<String, Object> health = new LinkedHashMap<>();
