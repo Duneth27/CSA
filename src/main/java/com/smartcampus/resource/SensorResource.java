@@ -4,8 +4,11 @@ import com.smartcampus.model.Sensor;
 import com.smartcampus.repository.DataStore;
 import com.smartcampus.exception.CustomExceptions.LinkedResourceNotFoundException;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
@@ -15,6 +18,9 @@ import java.util.LinkedHashMap;
 @Consumes(MediaType.APPLICATION_JSON)
 public class SensorResource {
     private DataStore dataStore = DataStore.getInstance();
+
+    @Context
+    private UriInfo uriInfo;
 
     @GET
     public Response getAllSensors(@QueryParam("type") String type) {
@@ -60,8 +66,10 @@ public class SensorResource {
         }
 
         Sensor created = dataStore.createSensor(sensor);
+        URI location = uriInfo.getAbsolutePathBuilder().path(created.getId()).build();
         return Response
                 .status(Response.Status.CREATED)
+                .location(location)
                 .entity(created)
                 .build();
     }

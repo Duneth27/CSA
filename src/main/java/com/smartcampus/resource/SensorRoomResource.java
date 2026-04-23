@@ -4,8 +4,11 @@ import com.smartcampus.model.SensorRoom;
 import com.smartcampus.repository.DataStore;
 import com.smartcampus.exception.CustomExceptions.RoomNotEmptyException;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
+import java.net.URI;
 import java.util.List;
 
 @Path("rooms")
@@ -13,6 +16,9 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class SensorRoomResource {
     private DataStore dataStore = DataStore.getInstance();
+
+    @Context
+    private UriInfo uriInfo;
 
     @GET
     public Response getAllRooms() {
@@ -37,8 +43,10 @@ public class SensorRoomResource {
         }
 
         SensorRoom created = dataStore.createRoom(room);
+        URI location = uriInfo.getAbsolutePathBuilder().path(created.getId()).build();
         return Response
                 .status(Response.Status.CREATED)
+                .location(location)
                 .entity(created)
                 .build();
     }
